@@ -19,17 +19,6 @@ public class Department {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long departmentId;
     @NotBlank(message = "Please Add Department Name")
-//    @Leng th(max=5, min = 1)
-//    @Size(max=10, min = 0)
-//    @Email
-//    @Positive
-//    @Negative
-//    @NegativeOrZero
-//    @PositiveOrZero
-//    @Future
-//    @FutureOrPresent
-//    @Past
-//    @PastOrPresent
     private String departmentName;
     private String departmentAddress;
     private String departmentCode;
