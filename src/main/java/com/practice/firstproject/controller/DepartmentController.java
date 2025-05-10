@@ -1,6 +1,7 @@
 package com.practice.firstproject.controller;
 
 import com.practice.firstproject.entity.Department;
+import com.practice.firstproject.error.DepartmentNotFoundException;
 import com.practice.firstproject.service.DepartmentService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
@@ -8,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class DepartmentController {
@@ -31,8 +33,7 @@ public class DepartmentController {
 
     // Fetching Department by Id
     @GetMapping("/departments/{departmentId}")
-    public Department fetchDepartmentById(@PathVariable Long departmentId){
-        LOGGER.info("Inside fetchDepartmentById of DepartmentController");
+    public Department fetchDepartmentById(@PathVariable("departmentId") Long departmentId) throws DepartmentNotFoundException {
         return departmentService.fetchDepartmentById(departmentId);
     }
 
