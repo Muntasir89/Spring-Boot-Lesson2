@@ -39,9 +39,9 @@ class StudentRepositoryTest {
                 .build();
 
         Student student = Student.builder()
-                .firstName("Monim")
-                .emailId("monim@gmail.com")
-                .lastName("Kumar")
+                .firstName("Monim2")
+                .emailId("monim2@gmail.com")
+                .lastName("Hossen")
                 .guardian(guardian)
                 .build();
 
@@ -85,5 +85,19 @@ class StudentRepositoryTest {
     public void printStudentFirstNameByEmailAddress(){
         String firstName = studentRepository.getStudentFirstNameByEmailAddress("monim@gmail.com");
         System.out.println("firstName = "+firstName);
+    }
+
+//    @Test
+//    public void printgetStudentByEmailAddressNativeNamedParam(){
+//         Student student = studentRepository.getStudentByEmailAddressNativeNamedParam("monim@gmail.com");
+//
+//         System.out.println("student = "+student);
+//    }
+
+    @Test
+    public void updateStudentNameByEmailIdTest(){
+        studentRepository.updateStudentNameByEmailId("Monim3", "monim2@gmail.com");
+
+        System.out.println("Student name updated successfully");
     }
 }
