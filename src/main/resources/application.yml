@@ -2,7 +2,7 @@ spring:
   datasource:
     username: root
     password: password
-    url: jdbc:mysql://localhost:3306/schooldb
+    url: jdbc:mysql://localhost:3306/user_registration
     driver-class-name: com.mysql.jdbc.Driver
   jpa:
     hibernate:
