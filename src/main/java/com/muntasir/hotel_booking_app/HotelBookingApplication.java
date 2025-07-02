@@ -1,12 +1,12 @@
-package com.muntasir.authentication;
+package com.muntasir.hotel_booking_app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AuthenticationApplication {
+public class HotelBookingApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AuthenticationApplication.class, args);
+        SpringApplication.run(HotelBookingApplication.class, args);
     }
 }
