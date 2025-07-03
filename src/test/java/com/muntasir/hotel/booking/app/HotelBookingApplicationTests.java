@@ -1,4 +1,4 @@
-package com.muntasir.hotel_booking_app;
+package com.muntasir.hotel.booking.app;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

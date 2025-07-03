@@ -1,4 +1,4 @@
-package com.muntasir.hotel_booking_app.dto.common;
+package com.muntasir.hotel.booking.app.domain.dto.common;
 
 import jakarta.persistence.*;
 import lombok.Data;

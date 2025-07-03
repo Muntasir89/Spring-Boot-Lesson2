@@ -1,4 +1,4 @@
-package com.muntasir.hotel_booking_app;
+package com.muntasir.hotel.booking.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
