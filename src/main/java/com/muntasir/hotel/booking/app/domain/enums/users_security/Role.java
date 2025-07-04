@@ -1,4 +1,4 @@
-package com.muntasir.hotel.booking.app.domain.enums;
+package com.muntasir.hotel.booking.app.domain.enums.users_security;
 
 public enum Role {
     USER("User"),

@@ -3,7 +3,7 @@ package com.muntasir.hotel.booking.app.service.auth;
 import com.muntasir.hotel.booking.app.domain.dto.user.User;
 import com.muntasir.hotel.booking.app.domain.dto.request.RegisterRequest;
 import com.muntasir.hotel.booking.app.domain.dto.response.UserResponse;
-import com.muntasir.hotel.booking.app.domain.enums.Role;
+import com.muntasir.hotel.booking.app.domain.enums.users_security.Role;
 import com.muntasir.hotel.booking.app.exception.ResourceNotFoundException;
 import com.muntasir.hotel.booking.app.exception.ValidationException;
 import com.muntasir.hotel.booking.app.repository.UserRepository;

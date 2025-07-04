@@ -3,7 +3,7 @@ package com.muntasir.hotel.booking.app.domain.dto.user;
 import com.muntasir.hotel.booking.app.domain.dto.common.BaseEntity;
 
 
-import com.muntasir.hotel.booking.app.domain.enums.Role;
+import com.muntasir.hotel.booking.app.domain.enums.users_security.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
