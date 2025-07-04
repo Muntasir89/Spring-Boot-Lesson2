@@ -1,9 +1,18 @@
 package com.muntasir.hotel.booking.app.domain.enums;
 
 public enum Role {
-    USER,
-    ADMIN,
-    HOTEL_MANAGER,
-    SUPER_ADMIN
-}
+    USER("User"),
+    ADMIN("Administrator"),
+    HOTEL_MANAGER("Hotel Manager"),
+    SUPER_ADMIN("Super Administrator");
 
+    private final String displayName;
+
+    Role(String displayName) {
+        this.displayName = displayName;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+}

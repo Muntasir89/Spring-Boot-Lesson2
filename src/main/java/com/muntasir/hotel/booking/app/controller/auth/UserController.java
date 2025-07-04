@@ -2,9 +2,8 @@ package com.muntasir.hotel.booking.app.controller.auth;
 
 import com.muntasir.hotel.booking.app.domain.dto.response.ApiResponse;
 import com.muntasir.hotel.booking.app.domain.dto.response.UserResponse;
-import com.muntasir.hotel.booking.app.service.auth.AuthService;
+import com.muntasir.hotel.booking.app.security.SecurityContextHolder;
 import com.muntasir.hotel.booking.app.service.auth.UserService;
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -20,16 +19,11 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
-    private final AuthService authService;
 
     @GetMapping("/profile")
-    public ResponseEntity<ApiResponse<UserResponse>> getCurrentUserProfile(
-            HttpServletRequest request) {
+    public ResponseEntity<ApiResponse<UserResponse>> getCurrentUserProfile() {
         
-        String authHeader = request.getHeader("Authorization");
-        String token = authHeader.substring(7);
-        String username = authService.getUsernameFromToken(token);
-        
+        String username = SecurityContextHolder.getCurrentUsername();
         log.info("Profile request for user: {}", username);
         
         UserResponse userResponse = userService.getUserByUsername(username);
