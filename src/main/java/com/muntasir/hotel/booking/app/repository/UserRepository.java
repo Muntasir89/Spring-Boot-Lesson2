@@ -1,6 +1,5 @@
 package com.muntasir.hotel.booking.app.repository;
 
-//import com.muntasir.authentication.entity.user.User;
 import com.muntasir.hotel.booking.app.domain.dto.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -25,4 +24,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     
     @Query("SELECT COUNT(u) FROM User u WHERE u.isActive = true")
     long countActiveUsers();
+
+    long countByRoleName(String roleName);
 }
