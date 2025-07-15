@@ -29,15 +29,6 @@ public class AdminServiceImpl implements AdminService {
         return stats;
     }
 
-//    @Override
-//    public void createManager(String email) {
-//        User user = userRepository.findByEmail(email)
-//                .orElseThrow(() -> new RuntimeException("User not found"));
-//
-//        user.setRole(Role.HOTEL_MANAGER);
-//        userRepository.save(user);
-//    }
-
     @Override
     public String generateManagerInvite(String email) {
         String token = UUID.randomUUID().toString();

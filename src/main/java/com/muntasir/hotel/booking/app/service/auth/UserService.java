@@ -1,7 +1,7 @@
 package com.muntasir.hotel.booking.app.service.auth;
 
 import com.muntasir.hotel.booking.app.domain.dto.user.User;
-import com.muntasir.hotel.booking.app.domain.dto.request.RegisterRequest;
+import com.muntasir.hotel.booking.app.domain.dto.request.auth.RegisterRequest;
 import com.muntasir.hotel.booking.app.domain.dto.response.UserResponse;
 
 import java.util.List;

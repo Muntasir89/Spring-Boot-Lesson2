@@ -1,4 +1,4 @@
-package com.muntasir.hotel.booking.app.domain.dto.request;
+package com.muntasir.hotel.booking.app.domain.dto.request.auth;
 
 
 import lombok.AllArgsConstructor;
@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class ManagerRegRequest extends RegisterRequest{
+public class ManagerRegRequest extends RegisterRequest {
     private String token;
 }

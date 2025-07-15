@@ -1,4 +1,4 @@
-package com.muntasir.hotel.booking.app.domain.dto.request;
+package com.muntasir.hotel.booking.app.domain.dto.request.auth;
 
 import com.muntasir.hotel.booking.app.domain.enums.users_security.Role;
 

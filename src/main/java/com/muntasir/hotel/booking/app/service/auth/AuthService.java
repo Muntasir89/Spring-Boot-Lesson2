@@ -1,8 +1,8 @@
 package com.muntasir.hotel.booking.app.service.auth;
 
-import com.muntasir.hotel.booking.app.domain.dto.request.LoginRequest;
-import com.muntasir.hotel.booking.app.domain.dto.request.ManagerRegRequest;
-import com.muntasir.hotel.booking.app.domain.dto.request.RegisterRequest;
+import com.muntasir.hotel.booking.app.domain.dto.request.auth.LoginRequest;
+import com.muntasir.hotel.booking.app.domain.dto.request.auth.ManagerRegRequest;
+import com.muntasir.hotel.booking.app.domain.dto.request.auth.RegisterRequest;
 import com.muntasir.hotel.booking.app.domain.dto.response.AuthResponse;
 
 public interface AuthService {
