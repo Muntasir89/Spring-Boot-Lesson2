@@ -2,6 +2,6 @@ package com.muntasir.hotel.booking.app.service.admin;
 
 public interface AdminService {
     Object getDashboardStats();
-    void createManager(String email);
+//    void createManager(String email);
     String generateManagerInvite(String email);
 }

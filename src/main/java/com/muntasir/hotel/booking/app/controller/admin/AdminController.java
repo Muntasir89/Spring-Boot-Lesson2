@@ -19,16 +19,21 @@ public class AdminController {
         return ResponseEntity.ok(ApiResponse.success(stats, "Dashboard stats retrieved successfully"));
     }
 
-    @PostMapping("/create-manager")
-    public ResponseEntity<ApiResponse<String>> createManager(@RequestParam String email) {
-        adminService.createManager(email);
-        return ResponseEntity.ok(ApiResponse.success("Manager created successfully", "Operation successful"));
-    }
+//    @PostMapping("/create-manager")
+//    public ResponseEntity<ApiResponse<String>> createManager(@RequestParam String email) {
+//        adminService.createManager(email);
+//        return ResponseEntity.ok(ApiResponse.success("Manager created successfully", "Operation successful"));
+//    }
 
     @PostMapping("/invite-manager")
-    public ResponseEntity<ApiResponse<String>> inviteManager(@RequestParam String email) {
-        String token = adminService.generateManagerInvite(email);
-        return ResponseEntity.ok(ApiResponse.success(token, "Share this token with the manager"));
+    public ResponseEntity<ApiResponse<String>> inviteManager(@RequestBody String email) {
+        try{
+            String token = adminService.generateManagerInvite(email);
+            return ResponseEntity.ok(ApiResponse.success(token, "Share this token with the manager"));
+        }catch (RuntimeException e){
+            return ResponseEntity.badRequest()
+                    .body(ApiResponse.error(e.getMessage(), "Failed to generate invite"));
+        }
     }
 
 }

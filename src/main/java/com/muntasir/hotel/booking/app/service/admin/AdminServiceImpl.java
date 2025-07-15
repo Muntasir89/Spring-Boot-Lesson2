@@ -29,14 +29,14 @@ public class AdminServiceImpl implements AdminService {
         return stats;
     }
 
-    @Override
-    public void createManager(String email) {
-        User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("User not found"));
-
-        user.setRole(Role.HOTEL_MANAGER);
-        userRepository.save(user);
-    }
+//    @Override
+//    public void createManager(String email) {
+//        User user = userRepository.findByEmail(email)
+//                .orElseThrow(() -> new RuntimeException("User not found"));
+//
+//        user.setRole(Role.HOTEL_MANAGER);
+//        userRepository.save(user);
+//    }
 
     @Override
     public String generateManagerInvite(String email) {
@@ -46,7 +46,7 @@ public class AdminServiceImpl implements AdminService {
                 .email(email)
                 .token(token)
                 .expiresAt(LocalDateTime.now().plusDays(3))
-                        .isEmailVerified(false).build();
+                .isEmailVerified(true).build();
 
         managerInviteRepository.save(invite);
         return token;
