@@ -1,7 +1,7 @@
 package com.muntasir.hotel.booking.app.domain.dto.response;
 
 import com.muntasir.hotel.booking.app.domain.entity.Payment;
-import com.muntasir.hotel.booking.app.domain.enums.PaymentStatus;
+import com.muntasir.hotel.booking.app.domain.enums.booking.PaymentStatus;
 import lombok.Data;
 
 @Data

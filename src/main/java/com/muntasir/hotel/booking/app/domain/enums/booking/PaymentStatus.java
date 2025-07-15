@@ -1,6 +1,6 @@
 package com.muntasir.hotel.booking.app.domain.enums.booking;
 
-enum PaymentStatus {
+public enum PaymentStatus {
     SUCCESS,
     FAILED,
     PENDING

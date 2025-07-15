@@ -1,7 +1,7 @@
 package com.muntasir.hotel.booking.app.domain.dto.response;
 
 import com.muntasir.hotel.booking.app.domain.entity.Booking;
-import com.muntasir.hotel.booking.app.domain.enums.BookingStatus;
+import com.muntasir.hotel.booking.app.domain.enums.booking.BookingStatus;
 import lombok.Data;
 
 import java.time.LocalDate;

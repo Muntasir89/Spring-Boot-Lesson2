@@ -31,6 +31,7 @@ public class JwtAuthenticationFilter implements Filter {
         "/api/v1/auth/login", 
         "/api/v1/auth/refresh-token",
         "/api/v1/auth/validate-token",
+        "/api/v1/user",
         "/actuator",
         "/swagger-ui",
         "/v3/api-docs"
@@ -43,8 +44,8 @@ public class JwtAuthenticationFilter implements Filter {
     );
     
     // Hotel manager endpoints
-    private static final List<String> HOTEL_MANAGER_ENDPOINTS = Arrays.asList(
-        "/api/v1/hotels"
+    private static final List<String> HOTEL_MANAGER_ENDPOINTS = List.of(
+            "/api/v1/hotels"
     );
 
     @Override
@@ -112,7 +113,6 @@ public class JwtAuthenticationFilter implements Filter {
             
             // Continue with the request
             chain.doFilter(request, response);
-            
         } catch (Exception e) {
             log.error("Authentication error: ", e);
             sendUnauthorizedResponse(httpResponse, "Authentication failed");

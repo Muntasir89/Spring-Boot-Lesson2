@@ -13,7 +13,7 @@ public class RoomResponse {
     public RoomResponse(Room room) {
         this.id = room.getId();
         this.roomType = room.getRoomType().name();
-        this.status = room.getStatus().name();
+        this.status = room.getStatus();
         this.maxOccupancy = room.getMaxOccupancy();
     }
 }

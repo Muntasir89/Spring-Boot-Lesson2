@@ -1,27 +1,30 @@
 package com.muntasir.hotel.booking.app.service.admin;
 
-import com.muntasir.hotel.booking.app.domain.entity.user.Role;
-import com.muntasir.hotel.booking.app.domain.entity.user.User;
-import com.muntasir.hotel.booking.app.repository.user.RoleRepository;
-import com.muntasir.hotel.booking.app.repository.user.UserRepository;
+import com.muntasir.hotel.booking.app.domain.dto.admin.ManagerInvite;
+import com.muntasir.hotel.booking.app.domain.dto.user.User;
+import com.muntasir.hotel.booking.app.domain.enums.users_security.Role;
+import com.muntasir.hotel.booking.app.repository.ManagerInviteRepository;
+import com.muntasir.hotel.booking.app.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
 public class AdminServiceImpl implements AdminService {
 
     private final UserRepository userRepository;
-    private final RoleRepository roleRepository;
+    private final ManagerInviteRepository managerInviteRepository;
 
     @Override
     public Object getDashboardStats() {
         Map<String, Long> stats = new HashMap<>();
         stats.put("totalUsers", userRepository.count());
-        stats.put("totalManagers", userRepository.countByRoleName("MANAGER"));
+        stats.put("totalManagers", userRepository.countByRoleName(Role.HOTEL_MANAGER));
         stats.put("totalBookings", 100L); // Replace with actual booking count logic
         return stats;
     }
@@ -31,10 +34,21 @@ public class AdminServiceImpl implements AdminService {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
-        Role managerRole = roleRepository.findByName("MANAGER")
-                .orElseThrow(() -> new RuntimeException("Role not found"));
-
-        user.getRoles().add(managerRole);
+        user.setRole(Role.HOTEL_MANAGER);
         userRepository.save(user);
+    }
+
+    @Override
+    public String generateManagerInvite(String email) {
+        String token = UUID.randomUUID().toString();
+
+        ManagerInvite invite = ManagerInvite.builder()
+                .email(email)
+                .token(token)
+                .expiresAt(LocalDateTime.now().plusDays(3))
+                        .isEmailVerified(false).build();
+
+        managerInviteRepository.save(invite);
+        return token;
     }
 }

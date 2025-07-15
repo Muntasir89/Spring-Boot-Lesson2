@@ -1,14 +1,14 @@
-package com.muntasir.hotel.booking.app.service.payment;
+package com.muntasir.hotel.booking.app.service.booking;
 
 import com.muntasir.hotel.booking.app.domain.dto.request.PaymentRequest;
 import com.muntasir.hotel.booking.app.domain.dto.response.PaymentResponse;
 import com.muntasir.hotel.booking.app.domain.entity.Booking;
 import com.muntasir.hotel.booking.app.domain.entity.Payment;
-import com.muntasir.hotel.booking.app.domain.enums.PaymentStatus;
+import com.muntasir.hotel.booking.app.domain.enums.booking.PaymentStatus;
+import com.muntasir.hotel.booking.app.service.payment.PaymentService;
 import com.muntasir.hotel.booking.app.repository.BookingRepository;
 import com.muntasir.hotel.booking.app.repository.PaymentRepository;
-import com.muntasir.hotel.booking.app.domain.enums.BookingStatus;
-import com.muntasir.hotel.booking.app.service.payment.PaymentService;
+import com.muntasir.hotel.booking.app.domain.enums.booking.BookingStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

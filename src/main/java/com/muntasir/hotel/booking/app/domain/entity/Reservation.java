@@ -1,6 +1,6 @@
 package com.muntasir.hotel.booking.app.domain.entity;
 
-import com.muntasir.hotel.booking.app.domain.enums.BookingStatus;
+import com.muntasir.hotel.booking.app.domain.enums.booking.BookingStatus;
 import jakarta.persistence.*;
 import lombok.Data;
 

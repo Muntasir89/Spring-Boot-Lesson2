@@ -135,4 +135,12 @@ public class AuthController {
         
         return ResponseEntity.ok(response);
     }
+
+//    @PostMapping("/complete-registration")
+//    public ResponseEntity<ApiResponse<String>> completeRegistration(){
+//        authService.completeManagerRegistration(request);
+//        return ResponseEntity.ok(
+//            ApiResponse.success("Registration completed successfully", "Registration successful")
+//        );
+//    }
 }

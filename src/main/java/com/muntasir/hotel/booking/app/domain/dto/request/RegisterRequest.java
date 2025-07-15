@@ -1,5 +1,6 @@
 package com.muntasir.hotel.booking.app.domain.dto.request;
 
+import com.muntasir.hotel.booking.app.domain.enums.users_security.Role;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,4 +19,5 @@ public class RegisterRequest {
     private String firstName;
     private String lastName;
     private String phoneNumber;
+    private Role role;
 }

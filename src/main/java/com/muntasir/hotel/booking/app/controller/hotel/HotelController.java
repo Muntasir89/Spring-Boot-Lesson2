@@ -17,7 +17,7 @@ public class HotelController {
 
     private final HotelService hotelService;
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<ApiResponse<HotelResponse>> createHotel(@RequestBody HotelCreateRequest request) {
         HotelResponse hotelResponse = hotelService.createHotel(request);
         return ResponseEntity.ok(ApiResponse.success(hotelResponse, "Hotel created successfully"));

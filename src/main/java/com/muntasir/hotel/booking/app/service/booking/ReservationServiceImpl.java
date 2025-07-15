@@ -4,7 +4,7 @@ import com.muntasir.hotel.booking.app.domain.dto.request.ReservationRequest;
 import com.muntasir.hotel.booking.app.domain.dto.response.ReservationResponse;
 import com.muntasir.hotel.booking.app.domain.entity.Reservation;
 import com.muntasir.hotel.booking.app.domain.entity.Room;
-import com.muntasir.hotel.booking.app.domain.enums.BookingStatus;
+import com.muntasir.hotel.booking.app.domain.enums.booking.BookingStatus;
 import com.muntasir.hotel.booking.app.repository.ReservationRepository;
 import com.muntasir.hotel.booking.app.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
