@@ -52,6 +52,7 @@ public class AuthServiceImpl implements AuthService {
         }
     }
 
+    @Override
     public String completeManagerRegistration(ManagerRegRequest request) {
         ManagerInvite invite = managerInviteRepository.findByToken(request.getToken()).orElseThrow(() -> new RuntimeException("Invalid token"));
 
