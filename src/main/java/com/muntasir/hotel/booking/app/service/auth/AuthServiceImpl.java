@@ -1,6 +1,6 @@
 package com.muntasir.hotel.booking.app.service.auth;
 
-import com.muntasir.hotel.booking.app.domain.dto.admin.ManagerInvite;
+import com.muntasir.hotel.booking.app.domain.entity.ManagerInvite;
 import com.muntasir.hotel.booking.app.domain.dto.request.auth.ManagerRegRequest;
 import com.muntasir.hotel.booking.app.domain.dto.user.User;
 import com.muntasir.hotel.booking.app.domain.dto.request.auth.LoginRequest;
@@ -25,24 +25,24 @@ import java.util.Date;
 @Slf4j
 @Transactional
 public class AuthServiceImpl implements AuthService {
-    
+
     private final UserService userService;
     private final JwtUtil jwtUtil;
     private final PasswordUtil passwordUtil;
     private final ManagerInviteRepository managerInviteRepository;
-    
+
     @Override
     public String register(RegisterRequest registerRequest) {
         log.info("Registering new user: {}", registerRequest.getUsername());
-        
+
         try {
             // Create user
             User user = userService.createUser(registerRequest);
-            
+
             log.info("User registered successfully: {}", user.getUsername());
-            
+
             return "User registered successfully";
-                    
+
         } catch (ValidationException e) {
             log.error("Registration validation failed: {}", e.getMessage());
             throw e;
@@ -56,11 +56,11 @@ public class AuthServiceImpl implements AuthService {
     public String completeManagerRegistration(ManagerRegRequest request) {
         ManagerInvite invite = managerInviteRepository.findByToken(request.getToken()).orElseThrow(() -> new RuntimeException("Invalid token"));
 
-        if(invite.isUsed()){
+        if (invite.getUsed()) {
             throw new RuntimeException("This invite has already been used");
         }
 
-        if(invite.getExpiresAt().isBefore(LocalDateTime.now())){
+        if (invite.getExpiresAt().isBefore(LocalDateTime.now())) {
             throw new RuntimeException("This invite has expired");
         }
 
@@ -99,14 +99,16 @@ public class AuthServiceImpl implements AuthService {
                 throw new AuthenticationException("Invalid username/email or password");
             }
 
+            log.info("User role: {}", user.getRole().name());
+
             // Update last login
             userService.updateLastLogin(user.getUsername());
 
             // Generate tokens
             String accessToken = jwtUtil.generateToken(
-                user.getUsername(),
-                user.getId(),
-                user.getRole().name()
+                    user.getUsername(),
+                    user.getId(),
+                    user.getRole().name()
             );
             String refreshToken = jwtUtil.generateRefreshToken(user.getUsername());
 
@@ -158,9 +160,9 @@ public class AuthServiceImpl implements AuthService {
 
             // Generate new tokens
             String newAccessToken = jwtUtil.generateToken(
-                user.getUsername(),
-                user.getId(),
-                user.getRole().name()
+                    user.getUsername(),
+                    user.getId(),
+                    user.getRole().name()
             );
             String newRefreshToken = jwtUtil.generateRefreshToken(user.getUsername());
 

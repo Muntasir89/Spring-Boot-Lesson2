@@ -1,7 +1,6 @@
 package com.muntasir.hotel.booking.app.service.admin;
 
-import com.muntasir.hotel.booking.app.domain.dto.admin.ManagerInvite;
-import com.muntasir.hotel.booking.app.domain.dto.user.User;
+import com.muntasir.hotel.booking.app.domain.entity.ManagerInvite;
 import com.muntasir.hotel.booking.app.domain.enums.users_security.Role;
 import com.muntasir.hotel.booking.app.repository.ManagerInviteRepository;
 import com.muntasir.hotel.booking.app.repository.UserRepository;
@@ -37,6 +36,7 @@ public class AdminServiceImpl implements AdminService {
                 .email(email)
                 .token(token)
                 .expiresAt(LocalDateTime.now().plusDays(3))
+                .used(false)
                 .isEmailVerified(true).build();
 
         managerInviteRepository.save(invite);

@@ -1,14 +1,13 @@
-package com.muntasir.hotel.booking.app.domain.dto.admin;
+package com.muntasir.hotel.booking.app.domain.entity;
 
 import com.muntasir.hotel.booking.app.domain.dto.common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
-@Table(name = "manager_invites")
+@Table(name = "invite-manager")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -34,8 +33,4 @@ public class ManagerInvite extends BaseEntity {
 
     @Column(name = "is_email_verified", nullable = false)
     private Boolean isEmailVerified = false;
-
-    public boolean isUsed() {
-        return used;
-    }
 }

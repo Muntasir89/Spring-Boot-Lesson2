@@ -54,7 +54,7 @@ public class UserServiceImpl implements UserService {
                 .firstName(registerRequest.getFirstName())
                 .lastName(registerRequest.getLastName())
                 .phoneNumber(registerRequest.getPhoneNumber())
-                .role(Role.USER)
+                .role(registerRequest.getRole())
                 .isActive(true)
                 .isEmailVerified(false)
                 .build();
